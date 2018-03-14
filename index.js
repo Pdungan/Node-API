@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
-import postsRouter from './api/drivers';
+import driversRouter from './api/drivers';
 
 
 dotenv.config();
@@ -13,7 +13,7 @@ const port = process.env.PORT;
 //configure body-parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use('/api/drivers', postsRouter);
+app.use('/api/drivers', driversRouter);
 
 app.use(express.static('public'));
 

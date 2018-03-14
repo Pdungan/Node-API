@@ -5,16 +5,18 @@ import _ from 'lodash';
             dname: 'Joey Logano',
             team: 'Chevrolet',
             aka: 'Sliced Bread',
-            nascarPoints: [],
+            nascarPoints: 0,
             carNumber: 32,
+	    race:[],
           },
          {
             id: 2,
             dname: 'Ryan Blaney',
             team: 'Ford',
             aka: 'junior',
-            nascarPoints: [],
+            nascarPoints: 0,
             carNumber: 12,
+	    race:[],
           },];
 
      const stubAPI = {
@@ -37,7 +39,7 @@ import _ from 'lodash';
          carNumber: (id) => {
              const index = _.findIndex(drivers,
                    (post) => {
-                    return post.id == id;
+                    return drivers.id == id;
                   } );
               return false;
            },
@@ -57,17 +59,17 @@ import _ from 'lodash';
 
 
 
-         addPoints: (driverId, c, n) => {
+  addRace: (driverId, c) => {
             let result = false;
-            const post = stubAPI.getPost(driverId);
+            const driver = stubAPI.getDriver(driverId);
             let id = 1;
-            if (post) {
-            const last = _.last(post.nascarPoints);
+            if (driver) {
+            const last = _.last(driver.race);
             if (last) {
                id = last.id + 1;
             }
-            post.nascarPoints.push({'id': id,
-                     'nascarPoints': c,} );
+            driver.race.push({'id': id,
+                     'race': c} );
             result = true;
             }
           return result;
