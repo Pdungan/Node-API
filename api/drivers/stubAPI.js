@@ -49,7 +49,7 @@ import _ from 'lodash';
 
 
 
-         getDriver: (id) => {
+    getDriver: (id) => {
             let result = null;
             const index = _.findIndex(drivers,
                    (driver) => {
@@ -60,6 +60,7 @@ import _ from 'lodash';
                     }
             return result;
             },
+
 
 
   addRace: (driverId, c) => {

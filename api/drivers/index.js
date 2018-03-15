@@ -27,9 +27,9 @@ router.post('/', (req, res) => {
 // get Driver
 router.get('/:id', (req, res) => {
     const id = req.params.id;
-    Driver.findById(id, (err, driver) => {
+    Drivers.findById(id, (err, driver) => {
         if (err) return handleError(res, err);
-        return res.send({driver});
+        return res.status(201).json(driver);
   } );
 });
 
@@ -37,17 +37,15 @@ router.get('/:id', (req, res) => {
 router.post('/:id/race', (req, res) => {
    const id = req.params.id;
    const race = req.body;
-   Driver.findById(id, (err, driver)=>{
+   Drivers.findById(id, (err, driver)=>{
      if (err) return handleError(res, err);
         driver.race.push(race);
-        post.save((err) => {
+        driver.save((err) => {
           if (err) return handleError(res, err);
-           return res.status(201).send({driver});
+    return res.status(201).send({race});
         });
   });
 });
-
-
 
 
 function handleError(res, err) {
