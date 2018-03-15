@@ -19,12 +19,14 @@ import _ from 'lodash';
 	    race:[],
           },];
 
+
+
      const stubAPI = {
          getAll: () => {
             return drivers;
           },
-         add: (d,t,a,c) => {
-              if (!(d && t && a && c)) return false;
+         add: (d,t,a,c,r) => {
+              if (!(d && t && a && c && r)) return false;
               let id = 1;
               const last = _.last(drivers);
               if (last) {
@@ -33,7 +35,7 @@ import _ from 'lodash';
               let len = drivers.length;
               let newLen = drivers.push({
                   'id': id,
-                 'dname': d, 'team': t, 'aka':a , 'nascarPoints': [], 'carNumber': c});
+                 'dname': d, 'team': t, 'aka':a , 'nascarPoints': c, 'carNumber': r});
                return newLen > len?id:-1;
               },
          carNumber: (id) => {
@@ -45,18 +47,19 @@ import _ from 'lodash';
            },
 
 
+
+
          getDriver: (id) => {
             let result = null;
             const index = _.findIndex(drivers,
-                   (post) => {
-                    return post.id == id;
+                   (driver) => {
+                    return driver.id == id;
                   } );
              if (index !== -1) {
                 result = drivers[index];
                     }
             return result;
             },
-
 
 
   addRace: (driverId, c) => {

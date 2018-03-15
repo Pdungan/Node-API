@@ -1,14 +1,21 @@
-const mongoose = require('mongoose'),
-Schema = mongoose.Schema;
+
+import mongoose from 'mongoose';
+
+const Schema = mongoose.Schema;
 
 const RacesSchema = new Schema({
-  body: {type: String, required:true},
+  race: {type: String, required:true},
   });
 
  const DriverSchema = new Schema({
-     title: {type: String, required:true},
-     link:  {type: String, optional:true},
-     username:  {type: String, required:true},
-     comments: [CommentSchema],
+     dname: {type: String, required:true},
+     team:  {type: String, optional:true},
+     aka:  {type: String, required:true},
+     nascarPoints:  {type: String, required:true},
+     carNumber:  {type: String, required:true},
+     race: [RacesSchema],
+ });
 
-export default mongoose.model('posts', PostSchema);
+export default mongoose.model('drivers', DriverSchema);
+
+
