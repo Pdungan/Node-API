@@ -10,8 +10,8 @@ const RacesSchema = new Schema({
 
  const DriverSchema = new Schema({
      dname: {type: String, required:true},
-     team:  {type: String, optional:true},
-     aka:  {type: String, required:true},
+     team:  {type: String, required:true},
+     aka:  {type: String, optional:true},
      carNumber:  {type: Number,  min: 1,max: 100,required: true},
      race: [RacesSchema],
  });

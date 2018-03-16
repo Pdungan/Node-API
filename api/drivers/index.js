@@ -51,7 +51,7 @@ router.post('/:id/race', (req, res) => {
 
 
 
-// update a team
+// update a Driver
 
 router.put('/:id',(req, res) =>{
   if (req.body._id) delete req.body._id;
@@ -64,6 +64,18 @@ router.put('/:id',(req, res) =>{
      return res.json(201, driver);
 
       });
+  });
+});
+
+// Delete a Driver
+router.delete('/:id', (req, res) => {
+  Drivers.findById(req.params.id, (err, driver) => {
+    if (err) return handleError(res, err);
+    if (!driver) return res.send(404);
+    driver.remove(function(err) {
+      if (err) return handleError(res, err);
+      return res.status(201).json(driver);
+    });
   });
 });
 
