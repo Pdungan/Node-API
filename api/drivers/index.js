@@ -1,5 +1,6 @@
 import express from 'express';
 import Drivers from './driverModel';
+import _ from 'lodash';
 
 const router = express.Router();// eslint-disable-line
 
@@ -14,7 +15,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
      const newDriver = req.body;
     if (newDriver) {
-           Driver.create(newDriver, (err, driver) => {
+           Drivers.create(newDriver, (err, driver) => {
               if (err) return handleError(res, err);
                  return res.status(201).send({driver});
           });
@@ -44,6 +45,25 @@ router.post('/:id/race', (req, res) => {
           if (err) return handleError(res, err);
     return res.status(201).send({race});
         });
+  });
+});
+
+
+
+
+// update a team
+
+router.put('/:id',(req, res) =>{
+  if (req.body._id) delete req.body._id;
+  Drivers.findById(req.params.id, (err, driver) =>{
+    if (err) return handleError(res, err);
+    if(!driver) return res.send(408);
+    const updated = _.merge(driver, req.body);
+    updated.save((err) => {
+     if (err) return handleError(res, err);
+     return res.json(201, driver);
+
+      });
   });
 });
 
