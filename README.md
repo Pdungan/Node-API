@@ -59,11 +59,11 @@ DriverSchema.path('team').validate(function (team) {
 
 This API is connected to cloud-based servers MLab using MongoDB. The npm module mongoose is used as middleware to alow the API communicate with MongoDB and save/store data in a MongoDB format
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+This API uses the npm module json2xml to allow the GET A Driver function to return to JSON or XML if depending on which format is requested by the browser. 
 
-
-
-
+this module can be found at the following URL https://www.npmjs.com/package/json2xml
 
 
 
