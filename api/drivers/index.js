@@ -1,16 +1,18 @@
 import express from 'express';
 import Drivers from './driverModel';
 import _ from 'lodash';
-import j2xml from 'json2xml';
+//import j2xml from 'json2xml';
 
 const router = express.Router();// eslint-disable-line
 
 router.get('/', (req, res) => {
   Drivers.find((err, drivers) => {
     if (err) return handleError(res, err);
-    return res.send(drivers);
+    return res.json(200,drivers);
   });
 });
+
+
 
 // Add a Driver
 router.post('/', (req, res) => {
@@ -18,7 +20,7 @@ router.post('/', (req, res) => {
     if (newDriver) {
            Drivers.create(newDriver, (err, driver) => {
               if (err) return handleError(res, err);
-                 return res.status(201).send({driver});
+                  return res.status(201).json(driver);
           });
       } else {
          return handleError(res, err);
@@ -52,7 +54,7 @@ router.post('/:id/race', (req, res) => {
         driver.race.push(race);
         driver.save((err) => {
           if (err) return handleError(res, err);
-    return res.status(201).send({race});
+    return res.status(201).json(race);
         });
   });
 });
@@ -66,7 +68,7 @@ router.put('/:id',(req, res) =>{
   if (req.body._id) delete req.body._id;
   Drivers.findById(req.params.id, (err, driver) =>{
     if (err) return handleError(res, err);
-    if(!driver) return res.send(408);
+    if(!driver) return res.send(404);
     const updated = _.merge(driver, req.body);
     updated.save((err) => {
      if (err) return handleError(res, err);
@@ -83,7 +85,7 @@ router.delete('/:id', (req, res) => {
     if (!driver) return res.send(404);
     driver.remove(function(err) {
       if (err) return handleError(res, err);
-      return res.status(201).json(driver);
+      return res.status(204).json(driver);
     });
   });
 });

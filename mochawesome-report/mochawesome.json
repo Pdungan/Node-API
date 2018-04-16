@@ -1,0 +1,135 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2018-04-16T14:20:06.739Z",
+    "end": "2018-04-16T14:20:07.329Z",
+    "duration": 590,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "success",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "b4e44de5-c16c-492c-a78b-1ec2597808cc",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [
+      {
+        "title": "should add a driver",
+        "fullTitle": "should add a driver",
+        "timedOut": false,
+        "duration": 460,
+        "state": "passed",
+        "speed": "slow",
+        "pass": true,
+        "fail": false,
+        "pending": false,
+        "code": "// post to /api/drivers\n(0, _supertest2.default)(_index.app).post('/api/drivers').send({ dname: 'Tyler Dillon', team: 'Chevrolet', aka: 'Ty', carNumber: 13 }).expect('Content-type', /json/).expect(201).end(function (err, res) {\n  res.status.should.equal(201);\n  res.body.should.have.property('_id');\n  res.body.dname.should.equal('Tyler Dillon');\n  done();\n});",
+        "err": {},
+        "isRoot": true,
+        "uuid": "9f68f281-f18f-4600-9cd0-11e08418e8be",
+        "isHook": false,
+        "skipped": false
+      },
+      {
+        "title": "should update a driver",
+        "fullTitle": "should update a driver",
+        "timedOut": false,
+        "duration": 51,
+        "state": "passed",
+        "speed": "medium",
+        "pass": true,
+        "fail": false,
+        "pending": false,
+        "code": "var superserver = (0, _supertest2.default)(_index.app);\nsuperserver.get('/api/drivers').expect('Content-type', /json/).expect(200) // This is HTTP response\n.end(function (err, res) {\n  var id = res.body[0]._id;\n  superserver.put('/api/drivers/' + id).send({ carNumber: 22 }).expect('Content-type', /json/).expect(201).end(function (err, res) {\n    res.status.should.equal(201);\n    res.body.carNumber.should.equal(22);\n    done();\n  });\n});",
+        "err": {},
+        "isRoot": true,
+        "uuid": "5ee890fc-4865-4d0c-8030-4b096a402b67",
+        "isHook": false,
+        "skipped": false
+      },
+      {
+        "title": "should delete a driver",
+        "fullTitle": "should delete a driver",
+        "timedOut": false,
+        "duration": 17,
+        "state": "passed",
+        "speed": "fast",
+        "pass": true,
+        "fail": false,
+        "pending": false,
+        "code": "var superserver = (0, _supertest2.default)(_index.app);\nsuperserver.get('/api/drivers').expect('Content-type', /json/).expect(200) // This is HTTP response\n.end(function (err, res) {\n  var id = res.body[0]._id;\n  superserver.delete('/api/drivers/' + id).expect('Content-type', /json/).expect(200) // This is HTTP response\n  .end(function (err, res) {\n    res.status.should.equal(204);\n    done();\n  });\n});",
+        "err": {},
+        "isRoot": true,
+        "uuid": "eacbe11a-082e-4749-9a1b-dc1cada6e920",
+        "isHook": false,
+        "skipped": false
+      }
+    ],
+    "suites": [
+      {
+        "uuid": "2ea5fdec-934c-4e2a-9f6e-b9ad0530e7e3",
+        "title": "Drivers API unit test",
+        "fullFile": "/home/paul/Desktop/WebServicesProject/test/testDriversAPI.js",
+        "file": "/test/testDriversAPI.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "should return collection of JSON documents",
+            "fullTitle": "Drivers API unit test should return collection of JSON documents",
+            "timedOut": false,
+            "duration": 13,
+            "state": "passed",
+            "speed": "fast",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "(0, _supertest2.default)(_index.app).get('/api/drivers').expect('Content-type', /json/).expect(200).end(function (err, res) {\n  res.status.should.equal(200);\n  done();\n});",
+            "err": {},
+            "isRoot": false,
+            "uuid": "a9052365-dbbd-43d5-8ec2-8a201f264ac3",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "a9052365-dbbd-43d5-8ec2-8a201f264ac3"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 13,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 120000
+      }
+    ],
+    "passes": [
+      "9f68f281-f18f-4600-9cd0-11e08418e8be",
+      "5ee890fc-4865-4d0c-8030-4b096a402b67",
+      "eacbe11a-082e-4749-9a1b-dc1cada6e920"
+    ],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 528,
+    "root": true,
+    "rootEmpty": false,
+    "_timeout": 2000
+  },
+  "copyrightYear": 2018
+}
