@@ -5,8 +5,9 @@ import driversRouter from './api/drivers';
 import mongoose from 'mongoose';
 import {loadDrivers} from './driversData';
 import {Mockgoose} from 'mockgoose';
-
-
+import {loadUsers} from './userData';
+import passport from './auth';
+import usersRouth from "./api/users";
 
 dotenv.config();
 
@@ -19,7 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use('/api/drivers', driversRouter);
 app.use(express.static('public'));
-
+app.use('/api/users', usersRouth);
 
 app.listen(port, () => {
   console.info(`Server running at ${port}`);
@@ -46,9 +47,12 @@ mongoose.connection.on('error', (err) => {
     process.exit(-1);
 });
 
+app.use('/api/drivers', passport.authenticate('jwt', {session: false}), driversRouter);
+
 
 // Populate DB with sample data
 if (process.env.seedDb) {
   loadDrivers();
+loadUsers();
 }
 
