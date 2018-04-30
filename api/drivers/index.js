@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 const router = express.Router();// eslint-disable-line
 
-router.get('/', (req, res) => {
+router.get( (req, res) => {
   Drivers.find((err, drivers) => {
     if (err) return handleError(res, err);
     return res.json(200,drivers);
