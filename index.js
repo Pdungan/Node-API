@@ -16,12 +16,14 @@ export const app = express();
 
 const port = process.env.PORT;
 
+
 //configure body-parser
+app.use( express.static('../public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use('/api/drivers', driversRouter);
 app.use('/api/users', usersRouth);
-app.use( express.static('../public'));
+
 
 app.listen(port, () => {
   console.info(`Server running at ${port}`);
