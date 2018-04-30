@@ -20,9 +20,8 @@ const port = process.env.PORT;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use('/api/drivers', driversRouter);
-app.use(express.static('public'));
 app.use('/api/users', usersRouth);
-
+app.use('/', express.static('public/public'));
 
 app.listen(port, () => {
   console.info(`Server running at ${port}`);

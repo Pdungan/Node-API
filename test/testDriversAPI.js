@@ -8,9 +8,7 @@ this.timeout(120000);
 it('should return collection of JSON documents', function(done) {
   supertest(app)
   .get('/api/drivers')
-
-    .set('Authorization', 'BEARER eyJhbGciOiJIUzI1NiJ9.c2hhbmU.frZpcXx9xrTuE01f8NfZ57-GV6vnbTlP8QnSA_HTQBQ')
-
+  .set('Authorization', 'BEARER eyJhbGciOiJIUzI1NiJ9.c2hhbmU.frZpcXx9xrTuE01f8NfZ57-GV6vnbTlP8QnSA_HTQBQ')
   .expect('Content-type', /json/)
   .expect(200)
   .end(function(err, res) {
@@ -28,9 +26,7 @@ it('should return collection of JSON documents', function(done) {
     // post to /api/drivers
     supertest(app)
     .post('/api/drivers')
-
     .set('Authorization', 'BEARER eyJhbGciOiJIUzI1NiJ9.c2hhbmU.frZpcXx9xrTuE01f8NfZ57-GV6vnbTlP8QnSA_HTQBQ')
-
     .send({ dname: 'Tyler Dillon', team: 'Chevrolet',aka: 'Ty', carNumber: 13,})
     .expect('Content-type', /json/)
     .expect(201)
