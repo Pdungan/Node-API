@@ -5,14 +5,10 @@ import driversRouter from './api/drivers';
 import mongoose from 'mongoose';
 import {loadDrivers} from './driversData';
 import {Mockgoose} from 'mockgoose';
-<<<<<<< HEAD
 import {loadUsers} from './userData';
 import passport from './auth';
 import usersRouth from "./api/users";
-=======
 
-
->>>>>>> 80214396e992c5c2ced11f41b3da59a807c4d9df
 
 dotenv.config();
 
@@ -26,6 +22,7 @@ app.use(bodyParser.urlencoded());
 app.use('/api/drivers', driversRouter);
 app.use(express.static('public'));
 app.use('/api/users', usersRouth);
+
 
 app.listen(port, () => {
   console.info(`Server running at ${port}`);
@@ -51,11 +48,8 @@ mongoose.connection.on('error', (err) => {
     console.error('MongoDB connection error: '+ err);
     process.exit(-1);
 });
-<<<<<<< HEAD
 
 app.use('/api/drivers', passport.authenticate('jwt', {session: false}), driversRouter);
-=======
->>>>>>> 80214396e992c5c2ced11f41b3da59a807c4d9df
 
 
 // Populate DB with sample data
