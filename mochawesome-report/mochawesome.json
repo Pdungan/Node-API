@@ -5,9 +5,9 @@
     "passes": 7,
     "pending": 0,
     "failures": 0,
-    "start": "2018-04-27T15:18:34.651Z",
-    "end": "2018-04-27T15:18:36.111Z",
-    "duration": 1460,
+    "start": "2018-04-30T12:14:26.744Z",
+    "end": "2018-04-30T12:14:28.311Z",
+    "duration": 1567,
     "testsRegistered": 7,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -19,7 +19,7 @@
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "6a84f010-1953-4cfd-9f6d-dc4ea4d04468",
+    "uuid": "84cf6bc0-c70e-4f40-86dd-c837d34c2955",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -30,7 +30,7 @@
         "title": "should add a driver",
         "fullTitle": "should add a driver",
         "timedOut": false,
-        "duration": 482,
+        "duration": 501,
         "state": "passed",
         "speed": "slow",
         "pass": true,
@@ -39,7 +39,7 @@
         "code": "// post to /api/drivers\n(0, _supertest2.default)(_index.app).post('/api/drivers').set('Authorization', 'BEARER eyJhbGciOiJIUzI1NiJ9.c2hhbmU.frZpcXx9xrTuE01f8NfZ57-GV6vnbTlP8QnSA_HTQBQ').send({ dname: 'Tyler Dillon', team: 'Chevrolet', aka: 'Ty', carNumber: 13 }).expect('Content-type', /json/).expect(201).end(function (err, res) {\n  res.status.should.equal(201);\n  res.body.should.have.property('_id');\n  res.body.dname.should.equal('Tyler Dillon');\n  done();\n});",
         "err": {},
         "isRoot": true,
-        "uuid": "d31b64ff-28a5-4076-bdeb-7ac955f8cf90",
+        "uuid": "2fb46625-027d-478c-a070-f7a7f6fb5ae9",
         "isHook": false,
         "skipped": false
       },
@@ -47,16 +47,16 @@
         "title": "should update a driver",
         "fullTitle": "should update a driver",
         "timedOut": false,
-        "duration": 42,
+        "duration": 108,
         "state": "passed",
-        "speed": "medium",
+        "speed": "slow",
         "pass": true,
         "fail": false,
         "pending": false,
         "code": "var superserver = (0, _supertest2.default)(_index.app);\nsuperserver.get('/api/drivers').set('Authorization', 'BEARER eyJhbGciOiJIUzI1NiJ9.c2hhbmU.frZpcXx9xrTuE01f8NfZ57-GV6vnbTlP8QnSA_HTQBQ').expect('Content-type', /json/).expect(200).expect('Content-type', /json/).expect(200) // This is HTTP response\n.end(function (err, res) {\n  var id = res.body[0]._id;\n  superserver.put('/api/drivers/' + id).send({ carNumber: 22 }).expect('Content-type', /json/).expect(201).end(function (err, res) {\n    res.status.should.equal(201);\n    res.body.carNumber.should.equal(22);\n    done();\n  });\n});",
         "err": {},
         "isRoot": true,
-        "uuid": "73e2bb98-ab7f-428e-b16e-59c44a9684a5",
+        "uuid": "1cd5ea03-300e-4bf1-b433-b33ff047b1b0",
         "isHook": false,
         "skipped": false
       },
@@ -73,14 +73,14 @@
         "code": "var superserver = (0, _supertest2.default)(_index.app);\nsuperserver.get('/api/drivers').set('Authorization', 'BEARER eyJhbGciOiJIUzI1NiJ9.c2hhbmU.frZpcXx9xrTuE01f8NfZ57-GV6vnbTlP8QnSA_HTQBQ').expect('Content-type', /json/).expect(200).expect('Content-type', /json/).expect(200) // This is HTTP response\n.end(function (err, res) {\n  var id = res.body[0]._id;\n  superserver.delete('/api/drivers/' + id).expect('Content-type', /json/).expect(200).expect(200) // This is HTTP response\n  .end(function (err, res) {\n    res.status.should.equal(204);\n    done();\n  });\n});",
         "err": {},
         "isRoot": true,
-        "uuid": "f8ad7e4f-174d-4784-a815-b102ce9fab04",
+        "uuid": "c52d0bb1-fabf-4140-a6f9-8df965d1d922",
         "isHook": false,
         "skipped": false
       }
     ],
     "suites": [
       {
-        "uuid": "804c8c65-9b7a-4dee-951f-0e68d0665d5b",
+        "uuid": "098413ec-4571-43b1-a908-093fb9d771a5",
         "title": "Drivers API unit test",
         "fullFile": "/home/paul/Desktop/WebServicesProject/test/testDriversAPI.js",
         "file": "/test/testDriversAPI.js",
@@ -91,7 +91,7 @@
             "title": "should return collection of JSON documents",
             "fullTitle": "Drivers API unit test should return collection of JSON documents",
             "timedOut": false,
-            "duration": 2,
+            "duration": 3,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -100,25 +100,25 @@
             "code": "(0, _supertest2.default)(_index.app).get('/api/drivers').set('Authorization', 'BEARER eyJhbGciOiJIUzI1NiJ9.c2hhbmU.frZpcXx9xrTuE01f8NfZ57-GV6vnbTlP8QnSA_HTQBQ').expect('Content-type', /json/).expect(200).end(function (err, res) {\n  res.status.should.equal(200);\n  done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "901736c2-8e17-4216-b104-d89a0b12eecf",
+            "uuid": "97f0937b-044b-4ed6-864a-00a496bf9466",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "901736c2-8e17-4216-b104-d89a0b12eecf"
+          "97f0937b-044b-4ed6-864a-00a496bf9466"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 2,
+        "duration": 3,
         "root": false,
         "rootEmpty": false,
         "_timeout": 120000
       },
       {
-        "uuid": "6a508adf-e388-4a2f-9197-f014f88d1c25",
+        "uuid": "e93701d0-915a-4d91-9258-511afbe07b87",
         "title": "Users API unit test",
         "fullFile": "/home/paul/Desktop/WebServicesProject/test/testUsersAPI.js",
         "file": "/test/testUsersAPI.js",
@@ -129,7 +129,7 @@
             "title": "should return collection of JSON documents",
             "fullTitle": "Users API unit test should return collection of JSON documents",
             "timedOut": false,
-            "duration": 5,
+            "duration": 4,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -138,7 +138,7 @@
             "code": "// calling home page api\n(0, _supertest2.default)(_index.app).get('/api/users').expect('Content-type', /json/).expect(200) // This is the HTTP response\n.end(function (err, res) {\n  // HTTP status should be 200\n  res.status.should.equal(200);\n  done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "70afadcf-6d3b-4b3d-be9d-793847998d80",
+            "uuid": "28214bdb-a4d8-4889-9b5e-82abafa96253",
             "isHook": false,
             "skipped": false
           },
@@ -146,7 +146,7 @@
             "title": "should register a user",
             "fullTitle": "Users API unit test should register a user",
             "timedOut": false,
-            "duration": 220,
+            "duration": 234,
             "state": "passed",
             "speed": "slow",
             "pass": true,
@@ -155,7 +155,7 @@
             "code": "// post to /api/contacts\n(0, _supertest2.default)(_index.app).post('/api/users').query({ action: 'register' }).send({ username: 'Contact 99', password: 'test1' }).expect('Content-type', /json/).expect(201).end(function (err, res) {\n  res.status.should.equal(201);\n  res.body.success.should.equal(true);\n  done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "975a6940-bdd0-49c7-a8bf-65264f93296c",
+            "uuid": "c29f2757-74cf-43ef-a401-982c895bb5fe",
             "isHook": false,
             "skipped": false
           },
@@ -163,7 +163,7 @@
             "title": "should authenticate a user",
             "fullTitle": "Users API unit test should authenticate a user",
             "timedOut": false,
-            "duration": 217,
+            "duration": 219,
             "state": "passed",
             "speed": "slow",
             "pass": true,
@@ -172,35 +172,35 @@
             "code": "// post to /api/contacts\n(0, _supertest2.default)(_index.app).post('/api/users').send({ username: 'shane', password: 'panda' }).expect('Content-type', /json/).expect(201).end(function (err, res) {\n  res.status.should.equal(200);\n  res.body.token.substring(0, 3).should.equal('JWT');\n  done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "0a9a74ab-478b-411f-a433-fce13e69a144",
+            "uuid": "2adb79f2-a04e-4187-9589-e05e448a7eca",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "70afadcf-6d3b-4b3d-be9d-793847998d80",
-          "975a6940-bdd0-49c7-a8bf-65264f93296c",
-          "0a9a74ab-478b-411f-a433-fce13e69a144"
+          "28214bdb-a4d8-4889-9b5e-82abafa96253",
+          "c29f2757-74cf-43ef-a401-982c895bb5fe",
+          "2adb79f2-a04e-4187-9589-e05e448a7eca"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 442,
+        "duration": 457,
         "root": false,
         "rootEmpty": false,
         "_timeout": 120000
       }
     ],
     "passes": [
-      "d31b64ff-28a5-4076-bdeb-7ac955f8cf90",
-      "73e2bb98-ab7f-428e-b16e-59c44a9684a5",
-      "f8ad7e4f-174d-4784-a815-b102ce9fab04"
+      "2fb46625-027d-478c-a070-f7a7f6fb5ae9",
+      "1cd5ea03-300e-4bf1-b433-b33ff047b1b0",
+      "c52d0bb1-fabf-4140-a6f9-8df965d1d922"
     ],
     "failures": [],
     "pending": [],
     "skipped": [],
-    "duration": 531,
+    "duration": 616,
     "root": true,
     "rootEmpty": false,
     "_timeout": 2000
