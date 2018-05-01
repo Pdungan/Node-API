@@ -18,9 +18,9 @@ const port = process.env.PORT;
 
 
 //configure body-parser
-app.use( express.static('../public'));
+app.use( express.static('public'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended:true}));
 app.use('/api/drivers', driversRouter);
 app.use('/api/users', usersRouth);
 
