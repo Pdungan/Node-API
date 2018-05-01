@@ -8,7 +8,7 @@ import {Mockgoose} from 'mockgoose';
 import {loadUsers} from './userData';
 import passport from './auth';
 import usersRouth from "./api/users";
-import indexRouth from "/";
+
 
 
 dotenv.config();
@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/api/drivers', driversRouter);
 app.use('/api/users', usersRouth);
-app.use('/',indexRouth);
+
 
 
 app.listen(port, () => {
