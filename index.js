@@ -55,7 +55,7 @@ mongoose.connection.on('error', (err) => {
 
 app.get('/',(req,res)=> {
 res.redirect('/api/drivers')
-};
+});
 
 // Populate DB with sample data
 if (process.env.seedDb) {
