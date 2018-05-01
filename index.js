@@ -10,7 +10,7 @@ import passport from './auth';
 import usersRouth from "./api/users";
 
 app.get('/',(req,res)=> {
-res.redirect('/api/Drivers')
+res.redirect('/api/drivers')
 };
 
 dotenv.config();
