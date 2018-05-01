@@ -9,7 +9,9 @@ import {loadUsers} from './userData';
 import passport from './auth';
 import usersRouth from "./api/users";
 
-
+app.get('/',(req,res)=> {
+res.redirect('/api/Drivers')
+};
 
 dotenv.config();
 
