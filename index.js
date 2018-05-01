@@ -9,9 +9,7 @@ import {loadUsers} from './userData';
 import passport from './auth';
 import usersRouth from "./api/users";
 
-app.get('/',(req,res)=> {
-res.redirect('/api/drivers')
-};
+
 
 dotenv.config();
 
@@ -26,7 +24,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/api/drivers', driversRouter);
 app.use('/api/users', usersRouth);
-
+app.use('/api/drivers', passport.authenticate('jwt', {session: false}), driversRouter);
 
 
 app.listen(port, () => {
@@ -54,8 +52,10 @@ mongoose.connection.on('error', (err) => {
     process.exit(-1);
 });
 
-app.use('/api/drivers', passport.authenticate('jwt', {session: false}), driversRouter);
 
+app.get('/',(req,res)=> {
+res.redirect('/api/drivers')
+};
 
 // Populate DB with sample data
 if (process.env.seedDb) {
