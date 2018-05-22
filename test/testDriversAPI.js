@@ -76,16 +76,13 @@ it('should update a driver', function(done) {
     .get('/api/drivers')
     .set('Authorization', 'BEARER eyJhbGciOiJIUzI1NiJ9.c2hhbmU.frZpcXx9xrTuE01f8NfZ57-GV6vnbTlP8QnSA_HTQBQ')
     .expect('Content-type', /json/)
-    .expect(200) 
-    .expect('Content-type', /json/)
     .expect(200) // This is HTTP response
     .end(function(err, res) {
         const id = res.body[0]._id;
         superserver
             .delete('/api/drivers/'+id)
             .expect('Content-type', /json/)
-            .expect(200) 
-            .expect(200) // This is HTTP response
+            .expect(200)
             .end(function(err, res) {
               res.status.should.equal(204);
               done();

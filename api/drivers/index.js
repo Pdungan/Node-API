@@ -1,7 +1,9 @@
 import express from 'express';
 import Drivers from './driverModel';
 import _ from 'lodash';
-//import j2xml from 'json2xml';
+var driversEvent = require("../../events.js")
+
+import j2xml from 'json2xml';
 
 const router = express.Router();// eslint-disable-line
 
@@ -20,6 +22,7 @@ router.post('/', (req, res) => {
     if (newDriver) {
            Drivers.create(newDriver, (err, driver) => {
               if (err) return handleError(res, err);
+		driversEvent.publish('create_driver_event', driver);
                   return res.status(201).json(driver);
           });
       } else {

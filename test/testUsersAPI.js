@@ -20,7 +20,7 @@ describe('Users API unit test', function() {
 
   // #2 add a user
   it('should register a user', function(done) {
-    // post to /api/contacts
+
     supertest(app)
     .post('/api/users')
     .query({action: 'register'})
@@ -36,7 +36,7 @@ describe('Users API unit test', function() {
 
   // #3 login a user
   it('should authenticate a user', function(done) {
-    // post to /api/contacts
+
     supertest(app)
     .post('/api/users')
     .send({username: 'shane', password: 'panda'})

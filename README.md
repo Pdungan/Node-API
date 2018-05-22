@@ -66,6 +66,59 @@ This API uses the npm module json2xml to allow the GET A Driver function to retu
 this module can be found at the following URL https://www.npmjs.com/package/json2xml
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//
+//						ASSESSMENT PART TWO
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+for the second part of my API, I added the following.
+
+
+the API now allows the user to create update and delete users through the API just like the API allows users to create a driver.
+
+
+the API now has testing as part of its funchality by entering the command "nmp run test" seven tests are cycled through. 
+these tests test for 
+			Get a Driver
+			Add a Driver
+			Update a Driver
+			Deleate a Driver 
+			Create a User
+			Update a User
+			Deleate a User
+
+the API also uses mochawesome as a reporter on the tests.
+
+the API now authenticates using JWT and passport.
+
+I have added authentication to the test that checks users credentials before they can GET, UPDATE and DELETE Drivers
+
+I have also integrated Pubnub into the API so that when a new driver is created it is registered on pubnub.
+
+the API is also hosted my API on Heroku at the following link:
+
+https://driversapi.herokuapp.com/api/drivers
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
